@@ -65,17 +65,26 @@ rpm -q docker-ce                                  # package manager -query docke
 # Basic commands
 docker pull centos:7                              # Pulls centos 7 from docker registry
 docker images                                     # Shows pulled images
+docker run -it *ContainerOS*                      # Start & log in to the specified OS
+ctrl P and ctrl Q                                 # Exits the container without stopping it
+
 docker ps                                         # Shows which OS are running
 docker ps -a                                      # Shows started/closed containers
+
 docker attach *Name*                              # Logs in to the RUNNING container
+
+
 docker run -it --name *madeUpName* *ContainerOS*  # Chooses a OWN name for a container
-docker images                                     # Shows running images
+
 ```
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/d651add3-0afd-43b7-b5a7-9dea78f28795)  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/6f930185-558a-4515-9fe7-168a9a4ce839)  
+
+![image](https://github.com/Keeriiim/Docker/assets/117115289/11afbb35-e8b0-4957-8808-ae3b0d37fe1c)  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/d711ecb5-35c4-4f7d-8d2c-f75228a1a64e)
+  
 
 
-![image](https://github.com/Keeriiim/Docker/assets/117115289/75217b22-05cf-41d8-9205-30ed6989c79e)  
-![image](https://github.com/Keeriiim/Docker/assets/117115289/e517a433-e30c-4b33-9265-6146191ec529)  
 
 
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/c65943a3-1da1-4c8e-ba06-e8f29a5bda88)  
