@@ -59,15 +59,20 @@ A command line interface (CLI) client (docker).
 
 
 ```bash
-rpm -q docker-ce      # package manager -query docker-ce -> docker-ce-26.1.1-1.el9.x86_64
+# Show installed version
+rpm -q docker-ce                                  # package manager -query docker-ce -> docker-ce-26.1.1-1.el9.x86_64
 
-docker ps             # Shows which OS are running
-docker ps -a          # Shows started/closed containers
-docker attach *Name*  # Logs in to the RUNNING container
-docker run -it --name *madeUpName* *ContainerOS* # Chooses a OWN name for a container
-
-docker images         # Shows running images
+# Basic commands
+docker pull centos:7                              # Pulls centos 7 from docker registry
+docker images                                     # Shows pulled images
+docker ps                                         # Shows which OS are running
+docker ps -a                                      # Shows started/closed containers
+docker attach *Name*                              # Logs in to the RUNNING container
+docker run -it --name *madeUpName* *ContainerOS*  # Chooses a OWN name for a container
+docker images                                     # Shows running images
 ```
+![image](https://github.com/Keeriiim/Docker/assets/117115289/d651add3-0afd-43b7-b5a7-9dea78f28795)  
+
 
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/75217b22-05cf-41d8-9205-30ed6989c79e)  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/e517a433-e30c-4b33-9265-6146191ec529)  
@@ -80,7 +85,7 @@ docker images         # Shows running images
 
 
 **SELINUX**
-Disabling
+Disabling  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/ee154cf3-2021-4e65-963a-329d453740c9)  
 
 
