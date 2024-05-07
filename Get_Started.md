@@ -72,7 +72,8 @@ ctrl P and ctrl Q                                 # Exits the container without 
 docker ps                                         # Shows which OS are running
 docker ps -a                                      # Shows started/closed containers
 
-docker attach *Name*                              # Logs in to the RUNNING container
+docker start *ContainerOS*´                       # Starts the stopped containerOS
+docker attach *ContainerName*                     # Logs in to the RUNNING container
 
 
 docker run -it --name *madeUpName* *ContainerOS*  # Chooses a OWN name for a container
@@ -80,7 +81,6 @@ docker run -it --name *madeUpName* *ContainerOS*  # Chooses a OWN name for a con
 ```
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/d651add3-0afd-43b7-b5a7-9dea78f28795)  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/6f930185-558a-4515-9fe7-168a9a4ce839)  
-
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/11afbb35-e8b0-4957-8808-ae3b0d37fe1c)  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/d711ecb5-35c4-4f7d-8d2c-f75228a1a64e)
   
@@ -97,6 +97,17 @@ docker run -it --name *madeUpName* *ContainerOS*  # Chooses a OWN name for a con
 **SELINUX**
 Disabling  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/ee154cf3-2021-4e65-963a-329d453740c9)  
+
+```bash
+docker container prune              # Removes all stopped containers
+docker stop *ContainerName*         # Stops the running OS
+docker start *ContainerName*        # Starts the container in the background
+
+```
+![image](https://github.com/Keeriiim/Docker/assets/117115289/d27b5faf-5a10-4300-bb52-964f808028df)  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/20e9439d-14b9-45d2-bb42-0cd9107a99bd)
+
+
 
 
 
