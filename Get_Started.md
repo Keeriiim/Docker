@@ -65,7 +65,8 @@ rpm -q docker-ce                                  # package manager -query docke
 # Basic commands
 docker pull centos:7                              # Pulls centos 7 from docker registry
 docker images                                     # Shows pulled images
-docker run -it *ContainerOS*                      # Start & log in to the specified OS
+docker run -it *ImageOS*                          # Start & log in to the specified image OS
+docker rename *ContainerOS* *newName*             # Renames the created container
 ctrl P and ctrl Q                                 # Exits the container without stopping it
 
 docker ps                                         # Shows which OS are running
