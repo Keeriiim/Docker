@@ -1,4 +1,6 @@
 - [Installation](#installation)
+- [Terminology](#terminology)
+- [Engine](#engine)
 - [Commands](#commands)
 
 
@@ -39,12 +41,10 @@ DevOps : How fast can you solve / provision a solution for low/high load
 # Engine
 Docker Engine: The core of Docker, it is a client-server application.
 The CLI is the client part that allows users to send commands to the Docker daemon.
-The docker daemon is the server amnd is called **Dockerd**.  It handles all the heavy lifting of managing Docker's various objects like containers, images, networks, and volumes.
-It runs as a background process on the host machine.
-
-The communication between the Docker CLI (client) and the Docker daemon (server) occurs through a REST API. When you execute a command like docker run or docker build, the Docker CLI formats this command into an HTTP request and sends it to the Docker daemon. 
-The daemon receives this request, performs the necessary operations, and then sends back a response.
-Role of HTTP/API: The API here is indeed a set of HTTP-based endpoints that the Docker daemon exposes. These endpoints receive commands, execute the required actions (like starting a new container or building an image), and manage Docker's various functionalities.
+The docker daemon is the server and is called **Dockerd**.  It handles all the heavy lifting of managing Docker's various objects like containers, images, networks, and volumes.
+It runs as a background process on the host machine. The communication between the Docker CLI (client) and the Docker daemon (server) occurs through a REST API. When you execute a command like docker run or docker build,
+the Docker CLI formats this command into an HTTP request and sends it to the Docker daemon. The daemon receives this request, performs the necessary operations, and then sends back a response.
+The API here is a set of HTTP-based endpoints that the Docker daemon exposes. These endpoints receive commands, execute the required actions (like starting a new container or building an image), and manage Docker's various functionalities.
 
 
 A server which is a type of long-running program called a daemon process.
@@ -62,6 +62,28 @@ A command line interface (CLI) client (docker).
 rpm -q docker-ce      # package manager -query docker-ce -> docker-ce-26.1.1-1.el9.x86_64
 
 docker ps             # Shows which OS are running
+docker ps -a          # Shows started/closed containers
+docker attach *Name*  # Logs in to the RUNNING container
+docker run -it --name *madeUpName* *ContainerOS* # Chooses a OWN name for a container
 
 docker images         # Shows running images
 ```
+
+![image](https://github.com/Keeriiim/Docker/assets/117115289/75217b22-05cf-41d8-9205-30ed6989c79e)  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/e517a433-e30c-4b33-9265-6146191ec529)  
+
+
+![image](https://github.com/Keeriiim/Docker/assets/117115289/c65943a3-1da1-4c8e-ba06-e8f29a5bda88)  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/c8f0ecbc-7eb4-44bf-be5f-d97e52b69f8c)  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/abf6a17b-7be0-4d28-903c-7aa48d3a39fc)  
+
+
+
+**SELINUX**
+Disabling
+![image](https://github.com/Keeriiim/Docker/assets/117115289/ee154cf3-2021-4e65-963a-329d453740c9)  
+
+
+
+
+
