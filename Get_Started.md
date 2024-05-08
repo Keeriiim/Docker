@@ -1,23 +1,47 @@
+- [Intro](#intro)
 - [Installation](#installation)
 - [Terminology](#terminology)
 - [Engine](#engine)
 - [Commands](#commands)
 
 
+# Intro
+- Operating Systems have two layers.
+1. OS Kernel: Communicates with the hardware (CPU, Memory)
+2. Application: Run on the kernel
+
+- Virtualization: Docker & VM machine are virtualization tools.
+  1. Docker: Virtualizates the applications layer. The image you pull will be a virtualization of the app layer of the chosen OS.
+             It uses the kernel of the running host OS.
+  2. VM : Has both the app and kernel layer. Meaning it virtualizates/boots up the complete operating system.
+  ![image](https://github.com/Keeriiim/Docker/assets/117115289/1d28b3c2-5034-4502-90c1-2a088d944b70)
+
+- More differences:
+  1. Size : Docker images are smaller ( Mbs vs Gbs)
+  2. Speed : Docker images are faster to boot because the os kernel is already running.
+  3. Compatablity : VM of any OS can run on ANY OS Host. But not possible with docker.
+
+- For example: Running a linux container directly on windows (< 10) or older Mac version is not possible. First thing is to check if docker can run natively meaning
+  is the docker compatable with the docker images. Therefor those OS needs Docker Toolbox which will interpret the linux code into windows/mac 
+
+
+     
 # Installation
 Follow these commands
 
-[Red Hat](https://docs.docker.com/engine/install/rhel/)
-[Ubuntu]([https://docs.docker.com/engine/install/rhel/](https://docs.docker.com/engine/install/ubuntu/))
+[Red Hat](https://docs.docker.com/engine/install/rhel/)  
+[Ubuntu]([https://docs.docker.com/engine/install/rhel/](https://docs.docker.com/engine/install/ubuntu/))  
+
+Windows (10 & earlier):
 
 # Terminology
 DevOps : How fast can you solve / provision a solution for low/high load
 - Provisioning: When you host/boot your OS on an environment
 - Install -> Boot -> Start application
-  1. Bare metal: Installing OS on your OS, take 30-60 min of installation time.
-  2. Creating instances: Usinga a cloud provider to host your OS - 15-60 min
+  1. Bare metal: Installing OS on empty hardware, take 30-60 min of installation time.
+  2. Creating instances: Usinga a cloud provider to host your OS - 5-20 min
   3. Virtulization: Using an VM to launch another OS - 30-60 min configuration time
-  4. Containerization: Using dockerfile to create another OS - 5-15 min
+  4. Containerization: Using dockerfile to create another OS - 1 min
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/5419db67-fead-4c74-a7a6-20b91db04132)
 
 - Docker Hub: Cloud-based registry service that allows you to link to code repositories, build your images, test them, store manually pushed images, and link to Docker Cloud so you can deploy images to your hosts.
