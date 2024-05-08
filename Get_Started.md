@@ -21,11 +21,20 @@
   2. Speed : Docker images are faster to boot because the os kernel is already running.
   3. Compatablity : VM of any OS can run on ANY OS Host. But not possible with docker.
 
-- For example: Running a linux container directly on windows (< 10) or older Mac version is not possible. First thing is to check if docker can run natively meaning
-  is the docker compatable with the docker images. Therefor those OS needs Docker Toolbox which will interpret the linux code into windows/mac 
+## Running Docker
+First thing is to check if docker can run natively which refers to running Docker containers directly on the host operating system without any additional virtualization or emulation layers. 
+For example, on Linux systems, Docker can run natively because it leverages the native containerization features provided by the Linux kernel, such as cgroups and namespaces. This allows Docker containers to share the host's kernel and resources directly. 
+
+***Newer Windows && MAC***
+On Windows and macOS systems, where native containerization support for Linux containers is not available, Docker Desktop provides a way to run Docker containers natively through lightweight virtualization technologies like Hyper-V (on Windows) or Hypervisor Framework (on macOS). While this isn't running Docker containers directly on the host OS kernel, it's considered native because it utilizes the host's virtualization capabilities efficiently.
+
+***Older Windows && MAC***
+Docker Toolbox was a separate solution provided by Docker before Docker for Windows was introduced. Docker Toolbox was aimed at users of older versions of Windows that lacked native support for Docker, such as Windows 7 and earlier, or Windows versions that didn't have Hyper-V support. Docker Toolbox provided a way to run Docker on these older Windows versions by utilizing Oracle VirtualBox to create a lightweight Linux virtual machine called the "Docker Machine." This VM hosted the Docker engine and provided a Linux-like environment where Docker containers could run, even though the host operating system was Windows. While Docker Toolbox enabled Docker usage on Windows platforms that didn't support Docker natively, it wasn't as seamless or integrated as Docker for Windows, which leveraged Microsoft's Hyper-V technology for better performance and integration with the Windows operating system.
 
 
-     
+***WSL***
+WSL, or Windows Subsystem for Linux, is a feature introduced by Microsoft to enable native Linux compatibility on Windows 10 and later versions. With WSL 2 integration, Docker for Windows can provide faster performance and better resource utilization by running directly inside a lightweight Linux environment compared to earlier solutions like Docker Toolbox or running Docker inside a virtual machine. This integration makes it much more convenient for developers to work with Docker on Windows systems, especially when dealing with Linux-based container
+
 # Installation
 Follow these commands
 
