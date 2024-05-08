@@ -1,4 +1,6 @@
 - [Intro](#intro)
+- [Running Docker](#running-docker)
+- [Links](#links)
 - [Installation](#installation)
 - [Terminology](#terminology)
 - [Engine](#engine)
@@ -20,6 +22,11 @@
   1. Size : Docker images are smaller ( Mbs vs Gbs)
   2. Speed : Docker images are faster to boot because the os kernel is already running.
   3. Compatablity : VM of any OS can run on ANY OS Host. But not possible with docker.
+
+## Links
+[CommandCheat](https://spacelift.io/blog/docker-commands-cheat-sheet)
+[]()
+
 
 ## Running Docker
 First thing is to check if docker can run natively which refers to running Docker containers directly on the host operating system without any additional virtualization or emulation layers. 
