@@ -92,12 +92,10 @@ A REST API which specifies interfaces that programs can use to talk to and instr
 A command line interface (CLI) client (docker).
 # Commands
 
-## Red Hat
-```bash
-
-```
-
-
+# Commands 
+The difference in behavior of running containers are due to the nature of the Docker images being used.
+For example will a process run after docker run -d while an OS might not.
+## Pull, run , start, attach
 ```bash
 # Show installed version
 rpm -q docker-ce                                  # package manager -query docker-ce -> docker-ce-26.1.1-1.el9.x86_64
@@ -138,6 +136,8 @@ docker run -it --name *madeUpName* *ContainerOS*  # Chooses a OWN name for a con
 Disabling  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/ee154cf3-2021-4e65-963a-329d453740c9)  
 
+
+## start, stop, prune
 ```bash
 docker container prune              # Removes all stopped containers
 docker stop *ContainerName*         # Stops the running OS
@@ -147,7 +147,10 @@ docker start *ContainerName*        # Starts the container in the background
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/d27b5faf-5a10-4300-bb52-964f808028df)  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/20e9439d-14b9-45d2-bb42-0cd9107a99bd)
 
-
+## Ports
+```bash
+docker run -d -p6000:1234           # Runs the container on host port : container port
+```
 
 
 
