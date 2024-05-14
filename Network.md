@@ -1,6 +1,7 @@
 - [Intro](#intro)
 - [Network types](#network-type)
 - [Ports](#ports)
+- [Unsupported Service](#unsupported-service)
 
 
 
@@ -89,6 +90,43 @@ with a proxy - The only difference is i have something inside the container rout
 
 Inside the container  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/503716fe-1807-4ab0-8cd6-2d73acb66426)  
+
+
+
+
+
+
+
+# Unsupported Service
+Docker does not support the service command which nowdays is systemctl, you either get this error or D-bus error.  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/4556f9e1-414f-4771-a895-51ba959e28e6)  
+
+Therefor we can find the executable for the service using ***which*** and start it from there.
+```bash
+rpm -q httpd        # Do i have it installed (red hat package manager query)
+
+which httpd         # Show path to executable
+/usr/sbin/httpd     # Start httpd service
+netstat -tlnp       # Find the PID
+kill PID            # End the service process
+```
+
+# Systemctl
+Another way to check what executable command a service is running  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/9ee5f537-5ec0-406f-ad3c-0c8ed0c5e3c9)  
+
+```bash
+systemctl status httpd                       # Get the link
+vim /usr/lib/systemd/system/httpd.service    # Check executable
+```
+
+
+
+![image](https://github.com/Keeriiim/Docker/assets/117115289/258e5c34-5c0c-4984-b3f3-bc14b7c42de3)
+
+
+
+
 
 
 
