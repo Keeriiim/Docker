@@ -2,9 +2,14 @@
 - [Network types](#network-type)
 - [Ports](#ports)
 - [Unsupported Service](#unsupported-service)
+- [Webserver error](#webserver-error)
+- [Systemctl](#systemctl)
+- [Errors](#errors)
 
 
-
+# Intro
+Whatever you install / create is stored on Storage which are PERMANENT
+Whenever you start a program / service this will run on memory (RAM) which are only PRESENT
 # Bridge Network
 
 # Network
@@ -50,7 +55,7 @@ docker log *Network Name/ID*  #Shows the logs to see if the creation has been su
 ```
 
 # Ports
-### Here are 3 containers running in order to understand port forwaring & docker network.    
+### Here are containers running in order to understand port forwaring & docker network.    
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/a68b0e93-0f9d-4c92-92d6-cb0205bde7cf)  
 
 The assigning will ONLY take place as long as the machines are running!  
@@ -66,7 +71,7 @@ Inside the container we see that default port 80 is up and running
 We can access the localhost of the container from the inside, but not from outside because no port is specified.
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/eabed2d0-ce76-4d2d-b9ff-dca717991e93)  
 
-### Case 2: Assigning functioning host:container port 80:80  
+### Case 2: Assigning host:container port 80:80  
 The webserver runs by default on port 80, therefor it MUST be set to -p host:80 for it to work. The host can be any FREE port.  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/f234b687-f49b-42bf-92dc-4afa53cacc58)   
 We are able to access it within the container and from the host machine.  
@@ -111,6 +116,35 @@ netstat -tlnp       # Find the PID
 kill PID            # End the service process
 ```
 
+Whatever you install / create is stored on Storage which are PERMANENT
+Whenever you start a program / service this will run on memory (RAM) which are only PRESENT
+
+```bash
+# Start global bootup file.
+vim /root/.bashrc                       # add /usr/sbin/httpd
+```
+
+# Webserver error
+### Careful when killing the process, make sure the file is removed in /var/run/httpd  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/77da49c2-1ccf-466b-9c6b-b9e80967f363)  
+
+```bash
+ps -aux                          # See all live processes
+kill PID                         # kills the process
+cat /var/run/httpd/httpd.pid     # Find service PID
+```
+
+```bash
+SOLUTION:
+
+# Start global bootup file.
+vim /root/.bashrc
+
+# add rm -f /var/run/httpd/httpd.pid
+# add /usr/sbin/httpd
+```
+
+
 # Systemctl
 Another way to check what executable command a service is running  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/9ee5f537-5ec0-406f-ad3c-0c8ed0c5e3c9)  
@@ -122,7 +156,13 @@ vim /usr/lib/systemd/system/httpd.service    # Check executable
 
 
 
-![image](https://github.com/Keeriiim/Docker/assets/117115289/258e5c34-5c0c-4984-b3f3-bc14b7c42de3)
+![image](https://github.com/Keeriiim/Docker/assets/117115289/258e5c34-5c0c-4984-b3f3-bc14b7c42de3) 
+
+
+# Error
+Coudln't connect to server -> no porting 
+No route to host -> container is not up
+Connection refused -> service not running
 
 
 
