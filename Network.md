@@ -49,7 +49,7 @@ docker log *Network Name/ID*  #Shows the logs to see if the creation has been su
 ```
 
 # Ports
-### Here are 3 containers running in order to understand port forwaring & docker network. Each creation assigns it's port on the hostmachine
+### Here are 3 containers running in order to understand port forwaring & docker network.    
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/a68b0e93-0f9d-4c92-92d6-cb0205bde7cf)  
 
 The assigning will ONLY take place as long as the machines are running!  
@@ -72,20 +72,27 @@ We are able to access it within the container and from the host machine.
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/44e7eba7-823e-4506-b027-25b8f739b6c3)  
 
 
-### Case 3: Assigning unmatched containerport with installed service  
-
-
-
-
 ### Case 3: Assigning multiple host ports for the same container port 80  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/c340e2d2-2986-4cfb-bb4c-e2ae376292f1)  
 
-This will work as long as the services are up and running inside the containers
+This will work as long as the services are up and running inside the containers  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/de5bbd50-71af-471f-a95f-cc0730c4748f)
 
 
+### Case 4: Assigning unmatched containerport with installed service  
+Without reverse proxy
+![image](https://github.com/Keeriiim/Docker/assets/117115289/66224ebd-4cc6-4ea4-aaee-1d2466194711)  
+
+with a proxy - The only difference is i have something inside the container routing 
+![image](https://github.com/Keeriiim/Docker/assets/117115289/7c6d42d7-ce03-4a38-8ece-7d1288d76d78)  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/3ae7b7a9-1732-4eb0-9ace-6869c2da5b59)  
+
+Inside the container  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/503716fe-1807-4ab0-8cd6-2d73acb66426)  
 
 
-![image](https://github.com/Keeriiim/Docker/assets/117115289/63f4d9c2-1a73-4894-85d8-78d4b610bc20)
+
+
+
 
 
