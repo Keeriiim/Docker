@@ -1,5 +1,6 @@
 - [Intro](#intro)
 - [Network types](#network-type)
+- [Ports](#ports)
 
 
 
@@ -46,4 +47,45 @@ docker run -d -p 8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin -e ME_CONFIG
 ```bash
 docker log *Network Name/ID*  #Shows the logs to see if the creation has been successfull
 ```
+
+# Ports
+### Here are 3 containers running in order to understand port forwaring & docker network. Each creation assigns it's port on the hostmachine
+![image](https://github.com/Keeriiim/Docker/assets/117115289/a68b0e93-0f9d-4c92-92d6-cb0205bde7cf)  
+
+The assigning will ONLY take place as long as the machines are running!  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/f3fae0b1-b23f-4471-9642-7acf57475cd0)  
+
+### Case 1: starting webhost without assigning any port  
+This won't do anything for the localhost  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/92f797b1-56c1-4d1b-82ea-91468444410b)  
+  
+Inside the container we see that default port 80 is up and running  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/df2ad5d5-4e3c-48a1-b52a-b4aaa043d15b)  
+  
+We can access the localhost of the container from the inside, but not from outside because no port is specified.
+![image](https://github.com/Keeriiim/Docker/assets/117115289/eabed2d0-ce76-4d2d-b9ff-dca717991e93)  
+
+### Case 2: Assigning functioning host:container port 80:80  
+The webserver runs by default on port 80, therefor it MUST be set to -p host:80 for it to work. The host can be any FREE port.  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/f234b687-f49b-42bf-92dc-4afa53cacc58)   
+We are able to access it within the container and from the host machine.  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/44e7eba7-823e-4506-b027-25b8f739b6c3)  
+
+
+### Case 3: Assigning unmatched containerport with installed service  
+
+
+
+
+### Case 3: Assigning multiple host ports for the same container port 80  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/c340e2d2-2986-4cfb-bb4c-e2ae376292f1)  
+
+This will work as long as the services are up and running inside the containers
+![image](https://github.com/Keeriiim/Docker/assets/117115289/de5bbd50-71af-471f-a95f-cc0730c4748f)
+
+
+
+
+![image](https://github.com/Keeriiim/Docker/assets/117115289/63f4d9c2-1a73-4894-85d8-78d4b610bc20)
+
 
