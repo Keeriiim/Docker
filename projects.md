@@ -108,6 +108,16 @@ kill PID                               # Kills the specified PID
 ```
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/5fd8ccb5-e6e1-493e-9b5a-664c6286d320)  
 
+# Project 4
+Connect one client and let the docker DNS work as a loadbalancer using round robin.  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/4e2b0adf-a98f-4418-87d4-745a82655f3f)  
+```bash
+docker run --name c1 almalinux yum install httpd -y        # Show port, ip & PID info
+kill PID                                                   # Kills the specified PID
+```
+ 
+
+
 
 
 
