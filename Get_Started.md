@@ -5,6 +5,7 @@
 - [Terminology](#terminology)
 - [Engine](#engine)
 - [Commands](#commands)
+- [Commit](#commit)
 
 
 # Intro
@@ -158,6 +159,10 @@ For debugging / validating your DB, application..etc you can enter the container
 docker exec -it *ContainerName/ID* /bin/bash           # New linux terminal for the container
 env                                                    # Prints environmental variables
 ```
+
+# Commit
+### docker commit CONTAINER_NAME NEW_CONTAINER_NAME:VERSION   - example webhost:v1
+This will createa an image, a snapshot of your current stopped container, containing EVERYTHING it had. Good practice to create snapshots before you make changes for debugging purposes !!
 
 
 
