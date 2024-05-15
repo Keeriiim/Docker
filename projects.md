@@ -166,6 +166,15 @@ Connect one client and let the docker DNS work as a loadbalancer using round rob
 docker run --name c1 almalinux yum install httpd -y        # Show port, ip & PID info
 kill PID                                                   # Kills the specified PID
 ```
+
+
+
+ ## Lessons learned
+ Linking only works within the network. You can not curl from outside the network to the container names, only ip adresses!
+
+```bash
+yum whatprovides tool                 # whatprovides is used to get the package name of the tool you want to use
+```
  
 
 
