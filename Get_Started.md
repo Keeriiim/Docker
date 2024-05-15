@@ -6,6 +6,7 @@
 - [Engine](#engine)
 - [Commands](#commands)
 - [Commit](#commit)
+- [Run & Excec](#run-&-exec)
 
 
 # Intro
@@ -163,6 +164,16 @@ env                                                    # Prints environmental va
 # Commit
 ### docker commit CONTAINER_NAME NEW_CONTAINER_NAME:VERSION   - example webhost:v1
 This will createa an image, a snapshot of your current stopped container, containing EVERYTHING it had. Good practice to create snapshots before you make changes for debugging purposes !!
+Remember to reapply -p number so that it becomes correct.
+
+# Run & Exec
+### Run command is for starting up new containers that you also want to run some kind of script
+
+```bash
+# Add -d after run for stdin false, -it for stdin true
+docker run --name Container_New_Name -p host:container imageName  yum install python3 -y
+example : docker run --name test1 -p 1000:100 almalinux yum install python3 -y
+```
 
 
 
