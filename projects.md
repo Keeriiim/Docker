@@ -89,6 +89,8 @@ httpd path                               # Will give us /usr/sbin/httpd which is
 /usr/sbin/httpd                          # Starts the httpd service
 
 killall httpd                            # Kills the service
+netstat -tlnp                          # Show port, ip & PID info
+kill PID                               # Kills the specified PID
 ```
 
 
@@ -97,18 +99,67 @@ killall httpd                            # Kills the service
 yum install -y httpd > /dev/null        # Waits for it to install, throwing the output
 yum install -y httpd > /dev/null &      # Runs the entire install in the background, throwing the output
 ```
-
-# Project 4
-Using container with a reverse proxy to redirect incoming traffic to 
-
-
-```bash
-netstat -tlnp                          # Show port, ip & PID info
-kill PID                               # Kills the specified PID
-```
+Killing a process with PID  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/5fd8ccb5-e6e1-493e-9b5a-664c6286d320)  
 
 # Project 4
+Redirect incoming traffic from different port to webserver
+
+```bash
+# Runs the entire install in the background, throwing the output
+docker run -it --name reverse -p 9090:500 almalinux    # Starts up a container that listens to traffic on port 500
+yum install -y httpd > /dev/null &                     # Listening on default port 80
+yum install -y nginx > /dev/null &                     # Listening on default port 80
+
+
+cd /etc/nginx                                          # Go to nginx config file 
+mv nginx.conf nginx.conf.disabled                      # disable installed config file
+vim nginx                                              # create new config to listen on port 500 
+
+### Add following to nginx ###
+events {
+        worker_connections 1024;
+}
+http {
+        server {
+                listen 500;
+                listen [::]:500;
+
+                location / {
+                proxy_pass http://localhost:80/;
+                }
+        }
+
+}
+###############################
+
+vim /root/.bashrc                                      # enable httpd & nginx on startup if container shuts down
+
+
+curl public_ip_container_host:9090                     # Let's us enter from the specified hostport
+
+### Add following to the file ###
+kill /var/run/httpd
+rm -f /var/run/nginx.pid
+
+/usr/sbin/httpd
+/usr/sbin/nginx
+#################################
+
+
+
+```
+![image](https://github.com/Keeriiim/Docker/assets/117115289/8c888b23-30bb-4caa-808f-9a9320e61f41)
+
+### If using AWS, enable http traffic on port 9090 for the security group of the app
+![image](https://github.com/Keeriiim/Docker/assets/117115289/7f61788d-7150-4395-9ec4-b0b0974668c2)  
+
+## Lessons learned
+If httpd is down, we will get 502 bad gateway from nginx
+
+
+
+# Project 5
 Connect one client and let the docker DNS work as a loadbalancer using round robin.  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/4e2b0adf-a98f-4418-87d4-745a82655f3f)  
 ```bash
