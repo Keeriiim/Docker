@@ -140,8 +140,8 @@ SOLUTION:
 # Start global bootup file.
 vim /root/.bashrc
 
-# add rm -f /var/run/httpd/httpd.pid
-# add /usr/sbin/httpd
+# add rm -rf /var/run/httpd/*         # Removes all files that can cause a buff
+# add /usr/sbin/httpd                 # Enable httpd
 ```
 
 
@@ -163,6 +163,12 @@ vim /usr/lib/systemd/system/httpd.service    # Check executable
 Coudln't connect to server -> no porting 
 No route to host -> container is not up
 Connection refused -> service not running
+
+No internet inside the container ->  
+![image](https://github.com/Keeriiim/Docker/assets/117115289/0d794684-b177-4601-b0e3-0db4fac5c7cc)  
+
+
+
 
 
 
