@@ -160,7 +160,7 @@ If httpd is down, we will get 502 bad gateway from nginx
 
 
 # Project 5
-Connect one client and let the docker DNS work as a loadbalancer using round robin.  
+Connect one client and let the docker DNS work as a loadbalancer using round robin. This can also be done with nginx & HA-proxy.
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/4e2b0adf-a98f-4418-87d4-745a82655f3f)  
 ```bash
 docker run --name c1 almalinux yum install httpd -y        # Show port, ip & PID info
