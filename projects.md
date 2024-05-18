@@ -160,17 +160,76 @@ If httpd is down, we will get 502 bad gateway from nginx
 
 
 # Project 5
-Connect one client and let the docker DNS work as a loadbalancer using round robin. This can also be done with nginx & HA-proxy.
+Create a network of 3 containers. Two of them will host using httpd and will will be connected with a network alias, the third is a client to ping them. The ping/curl will make use of dockers DNS that will work as a loadbalancer using round robin. This can also be done with nginx & HA-proxy.  
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/4e2b0adf-a98f-4418-87d4-745a82655f3f)  
 ```bash
-docker run --name c1 almalinux yum install httpd -y        # Show port, ip & PID info
-kill PID                                                   # Kills the specified PID
+docker network create dnswork                                                  # Creating the network
+docker run --name a1 --network dnswork --network-alias webhost almalinux       # Creating container, adding to network and naming alias. 
+yum install httpd -y
+yum install vim -y
+vim .bashrc
+
+### Add for startup
+rm -f /var/run/httpd/*         # Garbage collection
+/usr/sbin/httpd                # Starting the service
+###################
 ```
 
 
+Add a python script that will print the contiainers ipv4.
+```bash
+cd /var/www/html
+vim index.py
 
- ## Lessons learned
- Linking only works within the network. You can not curl from outside the network to the container names, only ip adresses!
+### Script
+#!/bin/bash/env python3
+import socket
+
+if __name__ == "__main__":
+  print("Content-Type: text/html")  # HTTP header indicating content type
+  print()  # Blank line to indicate end of headers
+  hostname = socket.gethostname()  # Get the hostname of the local machine
+  ip_address = socket.gethostbyname(hostname)  # Get the IP address corresponding to the hostname
+  print("Your local IP address is:", ip_address)
+###########
+```
+  
+Enable python script from the httpd config file
+```bash
+vim /etc/httpd/conf/httpd.conf
+
+## Go to <Directory "/var/www/html">, add ExecCGI
+Options Indexes FollowSymLinks ExecCGI
+
+## Go to <IfModule dir_module>, add index.py
+DirectoryIndex index.html index.py
+
+## Go to <IfModule mime_module>, AddType
+AddType application/x-httpd-cgi .py
+```
+
+Save this container as a image to duplicate it.
+```bash
+docker stop a1                    # Better practice to stop it before cloning
+docker commit a1 project5         # Cloning current container a1 and naming the image project5
+
+docker run --name a2 --network dnswork --network-alias webhost project5       # Creating container from image and adding to the same network as the first webhost
+docker run --name a3Client --network dnswork alpine                           # Creating the client and adding it to the same network. Notice i dont add the alias.
+```    
+     
+curl the network alias
+```bash
+curl webhost
+```
+![image](https://github.com/Keeriiim/Docker/assets/117115289/00ac9e97-edc4-44ac-9572-22a2d645d1f2)  
+
+
+
+
+## Lessons learned
+Linking only works within the network.I.e using network alias.
+If i want to curl from docker host os i can only use ip adresses.  
+If i still want a loadbalancer i need to set up a container with portforwarding.
 
 ```bash
 yum whatprovides tool                 # whatprovides is used to get the package name of the tool you want to use
