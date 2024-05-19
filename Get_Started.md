@@ -24,6 +24,7 @@
   1. Size : Docker images are smaller ( Mbs vs Gbs)
   2. Speed : Docker images are faster to boot because the os kernel is already running.
   3. Compatablity : VM of any OS can run on ANY OS Host. But not possible with docker.
+  4. Since docker does not BOOT the containers. Systemd that needs a boot will not start. (which gives systemctl) 
 
 ## Links
 [CommandCheat](https://spacelift.io/blog/docker-commands-cheat-sheet)
