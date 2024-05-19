@@ -233,6 +233,7 @@ If i still want a loadbalancer i need to set up a container with portforwarding.
 
 ```bash
 yum whatprovides tool                 # whatprovides is used to get the package name of the tool you want to use
+dnslookup google.com
 ```
  
 
