@@ -10,6 +10,11 @@
 # Intro
 Whatever you install / create is stored on Storage which are PERMANENT
 Whenever you start a program / service this will run on memory (RAM) which are only PRESENT
+
+Docker gives us 3 types of network
+* Null - "Network" that doesn't need internet connectivity
+* Bridge - Network with internet connectivity
+* Host - Gives you public ip to connect to outside world.
 # Bridge Network
 
 # Network
