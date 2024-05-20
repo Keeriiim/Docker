@@ -16,7 +16,12 @@ Docker gives us 3 types of network
 * Null - "Network" that doesn't need internet connectivity
 * Bridge - Network with internet connectivity
 * Host - Gives you public ip to connect to outside world.
+
+Storage
+Ephiremeal - Temp inside an vM
+Persistent - Cloud back up
 # Bridge Network
+
 
 # Network
 Docker creates an isolated network where the containers are running in. If two containers are in the same network they can talk without the need of ports or localhost.
