@@ -5,6 +5,7 @@
 - [Webserver error](#webserver-error)
 - [Systemctl](#systemctl)
 - [Errors](#errors)
+- [Iptables](#iptables)
 
 
 # Intro
@@ -173,7 +174,12 @@ No internet inside the container ->
 ![image](https://github.com/Keeriiim/Docker/assets/117115289/0d794684-b177-4601-b0e3-0db4fac5c7cc)  
 
 
+# Iptables
+```bash
+iptables -nvL                     # Lists all the current rules in the iptables firewall
 
+iptables -P FORWARD ACCEPT        # -P for policy
+```
 
 
 
