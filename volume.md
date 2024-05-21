@@ -13,7 +13,11 @@ Persistent - Cloud back up
 
 # Managing a volume
 
-
+## Creating a volume for future use
+```bash
+docker volume create v1                      # Creates an empty volume for shared storage
+docker run -it --name web1 -v v1 alpine       # Bind/Mount v1 to web1
+```
 
 
 # Filesystem
